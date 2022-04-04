@@ -15,7 +15,7 @@ L'application sera découpée en 3 parties:
 
 ## Outils
 
-Vous pouvez utiliser les outils de votre choix, seul un système GIT et un outils de gestion de projet sont imposés.
+Vous pouvez utiliser les outils de votre choix, seul un système GIT et un outil de gestion de projet sont imposés.
 
 ## La base de données
 
@@ -58,7 +58,7 @@ Vous devrez donc avoir une gestion d'utilisateurs.
 
 Vous devrez inclure dans votre application un module de recherche.
 
-### Documentation AOI
+### Documentation API (2 points)
 
 Vous devez inclure Swagger à votre API afin de la documenter
 
