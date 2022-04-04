@@ -66,7 +66,7 @@ Vous devez inclure Swagger à votre API afin de la documenter
 
 ### Sécurité
 
-Votre API devra être protégé par un token JWT.
+Votre API devra être protégée par un token JWT.
 
 ### Devops
 
