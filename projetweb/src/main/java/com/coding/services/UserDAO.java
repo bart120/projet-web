@@ -13,14 +13,8 @@ import com.coding.models.User;
 
 public class UserDAO {
 
-    public List<User> getUsers() throws SQLException {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        try (Connection co = DriverManager.getConnection("jdcb:mysql://localhost:3306/projet-web", "root", "toor")) {
+    public List<User> getUsers() throws SQLException {        
+        try (Connection co = DriverManager.getConnection("jdbc:mysql://localhost:3306/projet-web", "root", "toor")) {
             String sql = "SELECT * FROM users;";
             try (Statement st = co.createStatement()) {
                 try (ResultSet rs = st.executeQuery(sql)) {
@@ -41,7 +35,7 @@ public class UserDAO {
     }
 
     public User getUserById(int id) throws SQLException {
-        try (Connection co = DriverManager.getConnection("jdcb:mysql://localhost:3306/projet-web", "root", "toor")) {
+        try (Connection co = DriverManager.getConnection("jdbc:mysql://localhost:3306/projet-web", "root", "toor")) {
             String sql = "SELECT * FROM users where id=?;";
             try (PreparedStatement st = co.prepareStatement(sql)) {
                 st.setInt(1, id);
@@ -62,7 +56,7 @@ public class UserDAO {
     }
 
     public void add(User user) throws SQLException {
-        try (Connection co = DriverManager.getConnection("jdcb:mysql://localhost:3306/projet-web", "root", "toor")) {
+        try (Connection co = DriverManager.getConnection("jdbc:mysql://localhost:3306/projet-web", "root", "toor")) {
             String sql = "INSERT INTO users (login, password, fisrtname, name) VALUES(?, ?, ?, ?);";
             try (PreparedStatement st = co.prepareStatement(sql)) {
                 st.setString(1, user.getLogin());
