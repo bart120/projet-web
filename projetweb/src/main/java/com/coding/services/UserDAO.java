@@ -57,12 +57,36 @@ public class UserDAO {
 
     public void add(User user) throws SQLException {
         try (Connection co = DriverManager.getConnection("jdbc:mysql://localhost:3306/projet-web", "root", "toor")) {
-            String sql = "INSERT INTO users (login, password, fisrtname, name) VALUES(?, ?, ?, ?);";
+            String sql = "INSERT INTO users (login, password, firstname, name) VALUES(?, ?, ?, ?);";
             try (PreparedStatement st = co.prepareStatement(sql)) {
                 st.setString(1, user.getLogin());
                 st.setString(2, user.getPassword());
                 st.setString(3, user.getFirstname());
                 st.setString(4, user.getName());
+                st.execute();
+            }
+        }
+    }
+
+    public void update(int id, User user) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:mysql://localhost:3306/projet-web", "root", "toor")) {
+            String sql = "UPDATE users SET login=? , password=?, firstname=?, name=? WHERE id=?;";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setString(1, user.getLogin());
+                st.setString(2, user.getPassword());
+                st.setString(3, user.getFirstname());
+                st.setString(4, user.getName());
+                st.setInt(5, id);
+                st.execute();
+            }
+        }
+    }
+
+    public void delete(int id) throws SQLException {
+        try (Connection co = DriverManager.getConnection("jdbc:mysql://localhost:3306/projet-web", "root", "toor")) {
+            String sql = "DELETE FROM users WHERE id=?;";
+            try (PreparedStatement st = co.prepareStatement(sql)) {
+                st.setInt(1, id);
                 st.execute();
             }
         }
