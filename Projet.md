@@ -101,7 +101,7 @@ La soutenance dure 20 minutes durant lesquelles les membres présentent leur tra
 
 
 Les horaires de passage des groupes sont les suivants:
-- 13h40 =>
+- 13h40 => Guillaume, Ilan, Théo & Louis
 - 14h00 =>
 - 14h20 =>
 - 14h40 =>
